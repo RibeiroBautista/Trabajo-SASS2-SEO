@@ -1,0 +1,572 @@
+@import "variables";
+/*-------------------------------------------- AREA RESET #GLOBAL# --------------------------------------------*/
+*{
+    margin: 0; 
+    padding: 0; 
+    list-style: none;
+    text-decoration: none;
+    font-family: 'EB Garamond', serif;
+}
+/*-------------------------------------------- AREA HEADER #GLOBAL# --------------------------------------------*/
+#menu {
+    width: 100%;
+    overflow:hidden;
+    background: $color-complementario;
+    margin-bottom: auto;
+    top: 0;
+    .menuNav {
+        width: 100%;
+        max-width: 1500px;
+        margin: auto;
+        overflow: hidden;
+        display: flex;
+        align-content: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: stretch;
+        nav {
+            float: right; 
+            line-height: 120px;
+            a {
+                display: inline-block;
+                color: #fff;
+                text-decoration: none;
+                list-style: none;
+                justify-content: center;
+                text-align: center;
+                padding: 10px 20px;
+                line-height: normal;
+                font-size: 40px;
+                font-weight: bold;    
+                -webkit-transition: all 500ms ease;
+                -o-transition: all 500ms ease;
+                transition: all 500ms ease;
+                border-radius: 80px;
+                &:hover {
+                    background: black;
+                }
+            }
+        }
+    }
+}
+
+/*-------------------------------------------- AREA MAIN #HOME# --------------------------------------------*/
+
+/* APLIQUÉ EXTEND */
+.img__full {
+    width: 100%;
+    height: auto;
+}
+.img__full--dark--h:hover {
+    @extend .img__full;
+    background-color: black;
+}
+/* FIN AREA EXTEND */
+
+/* APLIQUÉ MIXIN */
+@mixin noticias ($bg, $col) {
+    background: linear-gradient(to right, $bg);
+    color:$col;
+}
+.noticias--color1 {
+    @include noticias (#7D19FA, #FAF401)
+}
+.noticias--color1r {
+    @include noticias ((#a5a200, #FAF401, #a5a200), #7D19FA)
+}
+.noticias--color2-lg {
+    @include noticias ((#FA510C, #8f2f0a, #6b2307), #19FAD6)
+}
+.noticias--color2r {
+    @include noticias (#19FAD6, #FA510C)
+}
+.noticias--color3 {
+    @include noticias ((#642a47, #c4508a, #642a47), #ED91BF)
+}
+.noticias--color3r {
+    @include noticias (#ED91BF, #A14271)
+}
+/* FIN AREA MIXIN */
+
+.card-container {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    cursor: default;
+}
+.card {
+    width: 100%;
+    max-width: 320px;
+    border: 1px solid;
+    border-color: $color-principal;
+    border-radius: $borde-redondo;
+    background: #f1f0f0;
+    transition: all 0.3s;
+    overflow: hidden;
+    &:hover {
+        box-shadow: 0px 0px 9px 1px black;
+        }
+    & &__img img {
+        max-height: 20rem;
+        width: 320px;
+        
+        }
+    & &__titulo {
+        font: {
+            family: $fuente-titulos;
+            size: 1.1rem;
+            style: normal;
+            }
+        text-align: center;
+        color: $color-principal;
+    }
+    & &__texto {
+        font-family: $fuente-regular;
+        color: $color-base;
+        text-align: center;
+    }
+    & &__btn {
+        a {
+            text-decoration: none;
+            margin-top: 10px;
+            background-color: $color-principal;
+            padding: 10px 20px;
+            border-radius: $borde-redondo;
+            font-family: $fuente-regular;
+            display: inline-block;
+            color: $color-light;
+            &:hover {
+                background-color: $color-base
+            }
+        }
+    }
+}
+
+.item-1 {
+    padding: 40px;
+    align-items: center;
+    border: 1px black solid;
+    .videos {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        justify-content: space-evenly;
+        align-content: stretch;
+        align-items: stretch;
+        .video-1 {
+            iframe {
+                transition: all 0.6s;
+                &:hover {
+                    box-shadow: 0px 0px 9px 1px black;
+                    margin-top: -10px;
+                }
+            }
+        }
+        .video-2 {
+            iframe {
+                transition: all 0.6s;
+                &:hover {
+                    box-shadow: 0px 0px 9px 1px black;
+                    margin-top: -10px;
+                }
+            }
+        }
+    }
+}
+
+.item-2 {
+    text-align: center;
+    padding: 40px;
+    border: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    .noticias {
+        border: 1px solid black;
+        .titulo-noticias {
+            border: 1px solid black;
+            padding: 1.5rem;
+        }
+        .container {
+            padding: 10px;
+            margin: auto;
+            border: 1px solid black;
+            p {
+                text-align: start;
+            }
+            .contenido-noticias {
+                border: 1px solid $color-light;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                cursor: default;
+                &:hover {
+                    box-shadow: 0px 0px 9px 1px black;
+                    margin-top: -1px;
+                }
+                p {
+                    width: 90%;
+                }
+                img {
+                    width: 10%;
+                }
+            }
+        }
+    }
+}
+
+.item-3 {
+    text-align: center;
+    padding: 40px;
+    border: 1px black solid;
+}
+
+/* SECCION -- PAGES/PAGINAS.HTML */
+.background {
+    background: map-get($colores, color1);
+}
+.paginas-web {
+    text-align: center;
+    padding: 40px;
+    li a img{
+        display: inline-block;
+        &:hover {
+            transition: all 0.6s;
+            box-shadow: 0px 0px 19px 10px black;
+        }
+    }
+}
+.paginas-web li a h2{
+    text-align: center;
+}
+.contenedor-paginas {
+    background: map-get($colores, color5);
+}
+.visitanos {
+    text-align: center;
+    color: $color-principal;
+    padding: 2rem;
+    color: gold;
+    background: map-get($colores, color5);
+}
+
+.ayuda {
+    display: flex;
+    justify-content: center;
+    h1 {
+        color: $color-complementario6;
+        size: 5rem;
+        text-align: center;
+        border: $color-complementario2 2px solid;
+    }
+}
+.areaTexto {
+    text-align: center;
+    overflow: hidden;
+    border-radius: 5rem;
+    border: $color-complementario2 solid 2px;
+    textarea {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        
+    }
+}
+.container-ayuda {
+    height: 100vh;
+}
+/* FIN DE LA SECCION -- PAGES/PAGINAS.HTML */
+
+/* APLIQUÉ MAPS */
+$special-thanks: (
+    ggbet: rgb(196, 0, 0),
+    logitech: lightblue,
+    philips: #0081c3,
+    nissan: grey,
+    csmoney: black
+);
+@each $nombre, $valor in $special-thanks {
+    .icon-#{$nombre} {
+        background: $valor;
+        border-radius: 0.5rem;
+        padding: 5px;
+        &:hover {
+            margin: -1;
+            box-shadow: 0px 0px 9px 1px black;
+        }
+    }
+}
+.iconos-galery {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    ul {
+        display: flex;
+    }
+}
+
+body {
+    background: map-get($colores, color1);
+}
+/* ACÁ TERMINA EL MAP */
+
+/* SECCION : PAGES/NOSOTROS.HTML */
+.display-flex {
+    margin-bottom: 10px;
+}
+/* FIN DE LA SECCION : PAGES/NOSOTROS.HTML */
+
+/*-------------------------------------------- AREA FOOTER #GLOBAL# --------------------------------------------*/
+.footer {
+    background: #121317;
+    color: #BEC7C7;
+    padding: 30px;
+    .info {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+.footer-ayuda {
+    background: #121317;
+    color: #BEC7C7;
+    padding: 30px;
+    
+    .info {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+/*-------------------------------------------- AREA QUERIES --------------------------------------------*/
+@media (min-width: 319px) and (max-width: 1024px) {
+    .card-container {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+    }
+    #menu {
+        display: flex;
+        width: 100%;
+        .menuNav {
+            width: 100%;
+            nav {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                a {
+                    color: black;
+                    font: {
+                        size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+} 
+
+@media (min-width: 200px) and (max-width: 768px){
+    #menu {
+        background: map-get($colores, color3);
+    }
+    body {
+        background: map-get($colores, color3);
+    }
+    .card-container {
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: stretch;
+        .card {
+            max-width: 300px;
+            height: auto;
+            & &__img img {
+                width: 200px;
+                max-height: 0.1rem;
+            }
+            & &__titulo {
+                font-size: 0.7rem;
+                width: 200px;
+            }
+            & &__texto {
+                font-size: 0.5rem;
+                width: 200px;
+            }
+            & &__btn {
+                width: 200px;
+            }
+        }
+    }
+    .item-1 {
+        display: none;
+    }
+    .item-2 {
+        background: map-get($colores, color3);
+        .container img {
+            display: none;
+        }
+    }
+    .item-3 {
+        background: map-get($colores, color3);
+        .iconos-galery {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: space-around;
+            align-items: center;
+            max-width: auto;
+            max-height: auto;
+        }
+    }
+    .contenedor-padre {
+        display: none;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .display-flex {
+        display: none;
+    }
+}
+@media (min-width: 920px) and (max-width:1280px) {
+    .card-container {
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .card {
+            max-width: 300px;
+            height: auto;
+            & &__img img {
+                width: 200px;
+                max-height: 0.1rem;
+            }
+            & &__titulo {
+                font-size: 0.7rem;
+                width: 200px;
+            }
+            & &__texto {
+                font-size: 0.5rem;
+                width: 200px;
+            }
+            & &__btn {
+                width: 200px;
+            }
+        }
+    }
+    .item-3 .iconos-galery {
+        display: flex;
+        align-content: space-around;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+@media (min-width: 768px) and (max-width:1030px) {
+    #menu {
+        background: map-get($colores, color5);
+    }
+    #menu .menuNav nav {
+        width: auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: row
+    }
+    #menu .menuNav nav a {
+        color: map-get($colores, color6);
+        font-size: 24px;
+    }
+    .card-container {
+        background: map-get($colores, color5);
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: stretch;
+        .card {
+            max-width: 300px;
+            height: auto;
+            & &__img img {
+                width: 200px;
+                max-height: 0.1rem;
+            }
+            & &__titulo {
+                font-size: 0.7rem;
+                width: 200px;
+            }
+            & &__texto {
+                font-size: 0.5rem;
+                width: 200px;
+            }
+            & &__btn {
+                width: 200px;
+            }
+        }
+        display: grid;
+        grid-template-areas: 
+        "remera1 remera2"
+        "remera3 remera4";
+    }
+
+    .item-1 {
+        background: map-get($colores, color5);
+    }
+    .videos {
+        background: map-get($colores, color5);
+    }
+    .item-2 {
+        background: map-get($colores, color5);
+    }
+    .item-3 {
+        background: map-get($colores, color5);
+        .iconos-galery {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            align-items: center;
+        }
+    }
+}
+/* SECCION : PAGES/NOSOTROS.HTML */
+.container-padre2:nth-child(1) {
+    display: none;
+}
+.container-padre2:nth-child(2) {
+    display: none;
+}
+.fotoNavi {
+    display: flex;
+}
+.display-flex {
+    display: flex;
+    flex-wrap: wrap
+}
+.display-flex div {
+    border: rgb(63, 189, 90) solid 2px;
+    margin: auto 10px;
+    margin-top: 5px;
+    background: linear-gradient(#6A736F, #B0B6BA);
+    color: rgb(255, 238, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.display-flex div h2 {
+    text-align: center;
+}
+@media screen and (min-width:425px){
+header nav {
+    flex-direction: row;
+    margin: 10px auto;
+}
+}
+/* FIN DE LA SECCION : PAGES/NOSOTROS.HTML */
+
